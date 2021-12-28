@@ -1,0 +1,25 @@
+<h5>Registration Page</h5>
+<h3>{{hero}}</h3>
+<form class="container" [formGroup]="registrationform" #f=ngForm (ngSubmit)="onRegister(f.value)">
+    <div class="row mb-3">
+      <label for="inputUserId" class="col-sm-2 col-form-label">UserId</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputUserId" formControlName="userid" name="userid" ngModel>
+        <span class="error" *ngIf="registrationform.get('userid')?.invalid && registrationform.get('userid')?.touched"> Invalid UserID</span>
+      </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputFirstName" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputFirstName" formControlName="fname">
+        </div>
+      </div>
+    <div class="row mb-3">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword" formControlName="password">
+        <span class="error" *ngIf="registrationform.get('password')?.invalid && registrationform.get('password')?.touched"> Invalid UserID</span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>

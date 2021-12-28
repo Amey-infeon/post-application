@@ -1,0 +1,150 @@
+<button type="button" class="btn btn-outline-success me-2" (click)="openModal()">Create New Post</button>
+<button type="button" class="btn btn-outline-success me-2 float-right" (click)="showMyPosts()">My Posts</button>
+<button type="button" class="btn btn-outline-success me-2 float-right" (click)="allPosts()">All Posts</button>
+  <ul *ngFor="let i of postList">
+    <div class="card text-center mt-3">
+              <div class="row">
+                <div class="span8">
+                  <div class="row" class="card-header">
+                    <div class="span8" >
+                      <h4><strong>{{i.heading}}</strong></h4>
+                      <!-- <h4><strong>{{postTitle}}</strong></h4> -->
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="span6">      
+                      <!-- <p> {{ postBody }}</p> -->
+                      <p> {{ i.content }}</p>
+                    </div>
+                  </div>
+                  <div class="row" class="card-footer text-muted">
+                    <div class="span8" >
+                      <p>
+                        <i class="icon-user"></i> by <a href="#">{{ i.userid }}</a>
+                        <!-- <i class="icon-user"></i> by <a href="#">{{ postBy }}</a> -->
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </ul>
+
+    <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+         <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Create New Post</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                </div>
+
+                <!-- first from -->
+                <form class="container" [formGroup]=postForm #f="ngForm" (ngSubmit)="onPostSubmit()">
+                  <div class="row mb-3">
+                    <label for="poastHeading" class="col-sm-2 col-form-label">Post Heading : </label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" formControlName="postHeading" name="postHeading" ngModel>                      
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Post content : </label>
+                    <div class="col-sm-10">
+                      <input type="textarea" class="form-control" id="inputPostContent" formControlName="postContent" name="postContent" ngModel>                     
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary mx-2">Post</button> 
+                  <button type="button" class="btn btn-primary" (click)="onCloseHandled()">Cancel</button>
+                </form>
+
+
+                <!-- take id and replace content -->
+
+                <!-- <form class="container" [formGroup]=postForm #f="ngForm" (ngSubmit)="onUpdate()">
+                  <div class="row mb-3">
+                    <label for="poastHeading" class="col-sm-2 col-form-label">Enter ID : </label>
+                    <button type="button" class="btn btn-primary" (click)="searchId()">Search</button>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" formControlName="idToReplace" name="postHeading" ngModel>                      
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="inputPostContent" class="col-sm-2 col-form-label">Replace Post content : </label>
+                    <div class="col-sm-10">
+                      <input type="textarea" class="form-control" id="inputPostContent" formControlName="postContent" name="postContent" ngModel>                     
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary mx-2">Replace</button> 
+                  <button type="button" class="btn btn-primary" (click)="onCloseHandled()">Cancel</button>
+                  
+                </form> -->
+
+
+                <!-- display on form -->
+            </div>
+         
+
+
+
+
+
+
+<!-- 
+            <div class="row">
+                <div class="span8">
+                  <div class="row">
+                    <div class="span8">
+                      <h4><strong>{{postTitle}}</strong></h4> -->
+
+
+                      
+
+
+                      <!-- <div class="modal"  role="dialog" id="postModel">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p>Modal body text goes here.</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+
+
+                      <!-- <button class="btn btn-outline-success me-2" type="button" data-bs-toggle="modal" data-bs-target="#postModal">Create New Post</button>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="span2">
+                      <a href="#" class="thumbnail">
+                          <img src="http://placehold.it/260x180" alt="">
+                      </a>
+                    </div>
+                    <div class="span6">      
+                      <p> {{ postBody }}
+                        </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="span8">
+                      <p></p>
+                      <p>
+                        <i class="icon-user"></i> by <a href="#">John</a> 
+                        | <i class="icon-calendar"></i> Sept 16th, 2012
+
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+        

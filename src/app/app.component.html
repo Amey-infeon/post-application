@@ -1,0 +1,11 @@
+<nav class="navbar navbar-light bg-light">
+    <form class="container-fluid justify-content-start">
+      <button class="btn btn-outline-success me-2" *ngIf="!onCheck()" routerLink="/login" type="button">Login</button>
+      <button class="btn btn-outline-success me-2" *ngIf="!onCheck()" routerLink="/registration" type="button">Sign Up</button>
+      <button class="btn btn-outline-success me-2" *ngIf="onCheck()" (click)="onLogout()"  type="button" >Logout</button>
+    </form>
+  </nav>
+  <!-- *ngIf="!Loggedin()" -->
+<router-outlet></router-outlet> 
+<!-- <app-registration [hero]="title" ></app-registration> -->
+<!-- <app-registration shareData()="shareData($event)" ></app-registration> -->

@@ -1,0 +1,18 @@
+<h5>Login Page</h5>
+  <form [formGroup]="loginForm" #f="ngForm" (ngSubmit)="onLogin1(f.value)" class="container">
+    <div class="row mb-3">
+      <label for="UserId" class="col-sm-2 col-form-label">UserId</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="userid" name="userid" ngModel>
+        <span class="error" *ngIf="loginForm.get('userid')?.invalid && loginForm.get('userid')?.touched">Invalid UserID</span>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword" formControlName="password" name="password" ngModel>
+        <span class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">Invalid Password</span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mx-2">Log in</button>
+  </form>
